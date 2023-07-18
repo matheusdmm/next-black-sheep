@@ -9,12 +9,20 @@ const fetchMyApi = 'http://localhost:8000/posts/0';
 const fetchMyApyProd =
   'https://nextjs-fastapi-starter-git-main-matheusdmm.vercel.app/posts/';
 
+type Post = {
+  data: object;
+  id: number;
+  title: string;
+  body: string;
+  date: string;
+};
+
 export default function Home() {
   const [post, setPost] = useState('');
 
   useEffect(() => {
-    axios.get(fetchMyApyProd).then((response) => {
-      let digestedPost = response.data.body;
+    axios.get(fetchMyApyProd).then((response: any) => {
+      let digestedPost: any = response.data.body;
       setPost(digestedPost);
       console.log(digestedPost);
     });

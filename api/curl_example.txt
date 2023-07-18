@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" \ -d '{username="user4", password="user4", role="supervisor", id=4}' \ localhost:8000/api/

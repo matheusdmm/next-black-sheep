@@ -16,7 +16,7 @@ export default function Home() {
   const [date, setDate] = useState('');
 
   useEffect(() => {
-    axios.get(fetchMyApi).then((response) => {
+    axios.get(fetchMyApyProd).then((response) => {
       let digestedPost = response.data.body;
       setPost(digestedPost.body);
       setTitle(digestedPost.title);

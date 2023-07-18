@@ -5,24 +5,29 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const fetchMyApi = 'http://localhost:8000/posts/0';
+const fetchMyApi = 'http://localhost:8000/api/posts/0';
 const fetchMyApyProd = '/api/posts/0';
 
 export default function Home() {
-  const [post, setPost] = useState('');
+  const [postContent, setPostContent] = useState('');
   const [title, setTitle] = useState('');
   const [id, setId] = useState('');
   const [date, setDate] = useState('');
 
   useEffect(() => {
-    axios.get(fetchMyApyProd).then((response) => {
-      let digestedPost = response.data.body;
-      setPost(digestedPost.body);
-      setTitle(digestedPost.title);
-      setId(digestedPost.id);
-      setDate(digestedPost.date);
-      console.log(digestedPost);
-    });
+    axios
+      .get(fetchMyApi)
+      .then((response) => {
+        let digestedPost = response.data.body;
+        setPostContent(digestedPost.postContent);
+        setTitle(digestedPost.title);
+        setId(digestedPost.id);
+        setDate(digestedPost.date);
+        console.log(digestedPost);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -40,11 +45,16 @@ export default function Home() {
         </div>
         <div className="space-y-4 text-left">
           <h1 className="text-4xl">{title || 'Api not loaded'}</h1>
-          <p className="text-2xl">{post || 'Api not loaded'}</p>
+          <p className="text-2xl">{postContent || 'Api not loaded'}</p>
           <p className="text-1xl">
             {date || 'Api not loaded'} | {id || 'Api not loaded'}
           </p>
         </div>
+      </section>
+      <section className="space-y-4 py-4 text-center">
+        <Link href="/apiTest">
+          <p className="text-1xl">Wanna see more? Click here ‼️</p>
+        </Link>
       </section>
       <footer>
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">

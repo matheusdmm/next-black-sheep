@@ -13,6 +13,10 @@
 /out/
 /.vscode/
 
+# fastApi
+/api/__pycache__/
+/api/tests/
+
 # production
 /build
 

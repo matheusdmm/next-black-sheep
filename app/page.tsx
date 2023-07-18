@@ -6,8 +6,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 const fetchMyApi = 'http://localhost:8000/posts/0';
-const fetchMyApyProd =
-  'https://nextjs-fastapi-starter-git-main-matheusdmm.vercel.app/posts/';
+const fetchMyApyProd = '/api/posts/0';
 
 export default function Home() {
   const [post, setPost] = useState('');

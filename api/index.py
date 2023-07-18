@@ -51,12 +51,12 @@ posts = {
 }
 
 
-@app.get('/posts/')
+@app.get('/api/posts/')
 async def get_posts() -> dict:
     return {"body": posts}
 
 
-@app.get('/posts/{id}')
+@app.get('/api/posts/{id}')
 async def get_post(id: int) -> dict:
     if id not in posts:
         raise HTTPException(

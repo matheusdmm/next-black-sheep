@@ -1,21 +1,30 @@
 <p align="center">
-  <a href="https://nextjs-fastapi-starter.vercel.app/">
+  <a href="https://next-black-sheep.vercel.app/">
     <img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="96">
-    <h3 align="center">Next.js FastAPI Starter</h3>
+    <h3 align="center">NextJS + FastAPI + Axios + Vercel</h3>
   </a>
 </p>
 
-<p align="center">Simple Next.js boilerplate that uses <a href="https://fastapi.tiangolo.com/">FastAPI</a> as the API backend.</p>
+<p align="center">Little starter project with <a href="https://fastapi.tiangolo.com/">FastAPI</a> as the API backend and <a href="https://axios-http.com/">Axios</a> to handle the conneciton in the front.</p>
 
 <br/>
 
 ## Introduction
 
-This is a hybrid Next.js + Python app that uses Next.js as the frontend and FastAPI as the API backend. One great use case of this is to write Next.js apps that use Python AI libraries on the backend.
+Hybrid Next.js + Python app with Next.js as the frontend and FastAPI as the API backend. I also included some basic post, get, put, delete and patch funcionality to the API as well as a sqlite connection. For the front, I included axios as the prefered api "getcher".
+
+I also modifier the API entrypoint to have the uvicorn sugar and help a bit more in the dev procces, because now you're able to kill the server if needed and also change the default port.
+
+```python
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+```
 
 ## How It Works
 
-The Python/FastAPI server is mapped into to Next.js app under `/api/`.
+The Python/FastAPI server is mapped into to Next.js app under `/api/*`.
+
+There, we'll have the `/api/users/` and the `/api/posts/` which, you guessed it right, will have a dummy userland and posts 🧛‍♂️.
 
 This is implemented using [`next.config.js` rewrites](https://github.com/digitros/nextjs-fastapi/blob/main/next.config.js) to map any request to `/api/:path*` to the FastAPI API, which is hosted in the `/api` folder.
 
@@ -35,15 +44,7 @@ You can clone & deploy it to Vercel with one click:
 
 ## Developing Locally
 
-You can clone & create this repo with the following command
-
-```bash
-npx create-next-app nextjs-fastapi --example "https://github.com/digitros/nextjs-fastapi"
-```
-
-## Getting Started
-
-First, install the dependencies:
+You can clone this repo and then do an:
 
 ```bash
 npm install
@@ -53,7 +54,7 @@ yarn
 pnpm install
 ```
 
-Then, run the development server:
+Then, for run both back and front concurrently:
 
 ```bash
 npm run dev
@@ -62,6 +63,18 @@ yarn dev
 # or
 pnpm dev
 ```
+
+Or, to run the instances separately:
+
+```bash
+# for the backend
+npm run fastapi-dev
+# for the frontend
+npm run next-dev
+
+```
+
+If You did not changed the ports, You'll be able to run on the defaults as stated below.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -74,5 +87,6 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [FastAPI Documentation](https://fastapi.tiangolo.com/) - learn about FastAPI features and API.
+- [Axios Documentation](https://axios-http.com/docs/intro) - Learn about Axios and how to use more features.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!

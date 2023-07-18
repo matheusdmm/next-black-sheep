@@ -53,7 +53,7 @@ posts = {
 
 @app.get('/api/posts/')
 async def get_posts() -> dict:
-    return {"body": posts}
+    return {"posts": posts}
 
 
 @app.get('/api/posts/{id}')
@@ -61,12 +61,12 @@ async def get_post(id: int) -> dict:
     if id not in posts:
         raise HTTPException(
             status_code=404, detail=f"User {post.id=} not found")
-    return {"body": posts[id]}
+    return {"posts": posts[id]}
 
 
-@app.get('/api/')
+@app.get('/api/users')
 async def read_all_users() -> dict:
-    return {"body": users}
+    return {"user": users}
 
 
 @app.get('/api/{id}')
@@ -74,7 +74,7 @@ async def read_user(id: int, q: str = None):
     if id not in users:
         raise HTTPException(
             status_code=404, detail=f"User {user.id=} not found")
-    return users[id]
+    return {"user": users[id]}
 
 
 @app.post('/api/')

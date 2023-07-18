@@ -21,12 +21,47 @@ class User(BaseModel):
     id: int
 
 
+class Post(BaseModel):
+    id: int
+    title: str
+    body: str
+    date: str
+
+
 users = {
     0: User(username="admin", password="admin", role="admin", id=0),
     1: User(username="user", password="user", role="user", id=1),
     2: User(username="user2", password="user2", role="supporter", id=2),
     3: User(username="user3", password="user3", role="supervisor", id=3),
 }
+
+posts = {
+    0: Post(
+        title="Post 0",
+        body="lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        date="2022-01-01",
+        id=0
+    ),
+    1: Post(
+        title="Post 1",
+        body="lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        date="2022-02-01",
+        id=1
+    )
+}
+
+
+@app.get('/posts/')
+async def get_posts() -> dict:
+    return {"body": posts}
+
+
+@app.get('/posts/{id}')
+async def get_post(id: int) -> dict:
+    if id not in posts:
+        raise HTTPException(
+            status_code=404, detail=f"User {post.id=} not found")
+    return {"body": posts[id]}
 
 
 @app.get('/api/')
@@ -42,7 +77,7 @@ async def read_user(id: int, q: str = None):
     return users[id]
 
 
-@app.post('/api/?q={user}}')
+@app.post('/api/')
 async def add_user(user: User):
     if user.id in users:
         raise HTTPException(
@@ -67,6 +102,7 @@ async def delete_user():
             status_code=404, detail=f"User {user.id=} not found")
     users.pop(id)
     return {"deleted": user}
+
 
 if __name__ == '__main__':
     # comment to run in prod through the package.json file script

@@ -11,7 +11,7 @@ export default function Home() {
       </div>
       <section>
         <div className="space-y-4 text-center">
-          That's right, fam! Python in the trunk JS in the frunth.
+          That is right, fam! Python in the trunk JS in the frunth.
         </div>
       </section>
       <footer>

@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(fetchMyApi)
+      .get(fetchMyApyProd)
       .then((response) => {
         let digestedPost = response.data.body;
         setPostContent(digestedPost.postContent);

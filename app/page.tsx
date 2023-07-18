@@ -9,21 +9,19 @@ const fetchMyApi = 'http://localhost:8000/posts/0';
 const fetchMyApyProd =
   'https://nextjs-fastapi-starter-git-main-matheusdmm.vercel.app/posts/';
 
-type Post = {
-  data: object;
-  id: number;
-  title: string;
-  body: string;
-  date: string;
-};
-
 export default function Home() {
   const [post, setPost] = useState('');
+  const [title, setTitle] = useState('');
+  const [id, setId] = useState('');
+  const [date, setDate] = useState('');
 
   useEffect(() => {
-    axios.get(fetchMyApyProd).then((response: any) => {
-      let digestedPost: any = response.data.body;
-      setPost(digestedPost);
+    axios.get(fetchMyApi).then((response) => {
+      let digestedPost = response.data.body;
+      setPost(digestedPost.body);
+      setTitle(digestedPost.title);
+      setId(digestedPost.id);
+      setDate(digestedPost.date);
       console.log(digestedPost);
     });
   }, []);
@@ -42,10 +40,10 @@ export default function Home() {
           <p>Below we have a example of a post fetched from our API</p>
         </div>
         <div className="space-y-4 text-left">
-          <h1 className="text-4xl">{post.title || 'Api not loaded'}</h1>
-          <p className="text-2xl">{post.body || 'Api not loaded'}</p>
+          <h1 className="text-4xl">{title || 'Api not loaded'}</h1>
+          <p className="text-2xl">{post || 'Api not loaded'}</p>
           <p className="text-1xl">
-            {post.date || 'Api not loaded'} | {post.id || 'Api not loaded'}
+            {date || 'Api not loaded'} | {id || 'Api not loaded'}
           </p>
         </div>
       </section>

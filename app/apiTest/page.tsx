@@ -7,7 +7,8 @@ const urlEndpoint = 'http://localhost:8000/api/users/';
 const urlEndpointProd = '';
 
 export default function apiInteraction() {
-  const [post, setPost] = useState('');
+  /*
+    const [post, setPost] = useState('');
 
   useEffect(() => {
     axios
@@ -19,6 +20,7 @@ export default function apiInteraction() {
         // catch fire
       });
   });
+  */
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

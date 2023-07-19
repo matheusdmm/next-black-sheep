@@ -7,6 +7,18 @@
 
 <p align="center">Little starter project with <a href="https://fastapi.tiangolo.com/">FastAPI</a> as the API backend and <a href="https://axios-http.com/">Axios</a> to handle the conneciton in the front.</p>
 
+<p align="center">
+    <a href="https://circleci.com/gh/badges/shields/tree/master">
+        <img src="https://img.shields.io/circleci/project/github/badges/shields/master" alt="front-end build status"></a>
+    <a href="https://circleci.com/gh/badges/daily-tests">
+        <img src="https://img.shields.io/circleci/project/github/badges/daily-tests?label=api%20build"
+            alt="back-end api build status"></a>
+    <a href="https://coveralls.io/github/badges/shields">
+        <img src="https://img.shields.io/coveralls/github/badges/shields"
+            alt="coverage"></a>
+
+</p>
+
 <br/>
 
 ## Introduction

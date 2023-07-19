@@ -5,7 +5,7 @@ import sqlite3
 
 from models import User, Post
 from example_data import posts, users
-from database_connection import insert
+from database_connection import *
 
 # Api stuff
 CORSMiddleware = cors.CORSMiddleware
@@ -41,7 +41,8 @@ async def get_post(id: int) -> dict:
 
 @app.get('/api/users/')
 async def read_all_users() -> dict:
-    return {"user": users}
+    users = read_all_db()
+    return {"body": users}
 
 
 @app.get('/api/users/{id}')
@@ -54,11 +55,9 @@ async def read_user(id: int, q: str = None):
 
 @app.post('/api/users/')
 async def add_user(user: User) -> dict:
-    if user.id in users:
-        raise HTTPException(
-            status_code=400, detail=f"User {user.id=} already exists")
-
-    # users.update(user)
+    # if user.id in users:
+    #     raise HTTPException(
+    #         status_code=400, detail=f"User {user.id=} already exists")
     insert(user)
     return {"user": user}
 

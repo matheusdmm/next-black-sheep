@@ -5,7 +5,6 @@ class User(BaseModel):
     username: str
     password: str
     role: str
-    id: int
 
 
 class Post(BaseModel):

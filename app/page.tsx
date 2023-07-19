@@ -5,8 +5,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const fetchMyApi = 'http://localhost:8000/api/posts/0';
-const fetchMyApyProd = '/api/posts/0';
+const fetchMyApyProd = '/api/posts/1';
 
 export default function Home() {
   const [postContent, setPostContent] = useState('');
@@ -53,14 +52,16 @@ export default function Home() {
       </section>
       <section className="space-y-4 py-4 text-center">
         <Link href="/apiTest">
-          <p className="text-1xl">Wanna see more? Click here ‼️</p>
+          <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 hover:bg-zinc-700">
+            Wanna see more? Click here ‼️
+          </p>
         </Link>
       </section>
       <footer>
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Go there to see the api
-          <Link href="/api/">
-            <code className="font-mono font-bold">api/index.py</code>
+        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 hover:bg-zinc-700">
+          Go there to see the&nbsp;
+          <Link href="https://github.com/matheusdmm/next-black-sheep">
+            <code className="font-mono font-bold">code</code>
           </Link>
         </p>
       </footer>

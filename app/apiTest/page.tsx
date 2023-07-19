@@ -13,15 +13,23 @@ export default function apiInteraction() {
 
     const payload = Object.fromEntries(formData);
 
-    axios
-      .post(urlEndpoint, payload)
-      .then(function (response) {
-        console.info(response);
-        alert(`User ${payload.username} created!`);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (
+      payload.username === '' ||
+      payload.password === '' ||
+      payload.role === ''
+    ) {
+      alert('Please fill in all fields');
+    } else {
+      axios
+        .post(urlEndpoint, payload)
+        .then(function (response) {
+          console.info(response);
+          alert(`User ${payload.username} created!`);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   };
 
   const UserLogin = (e: any) => {

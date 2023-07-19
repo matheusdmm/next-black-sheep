@@ -5,10 +5,10 @@ import sqlite3
 
 from models import User, Post
 from example_data import posts, users
+from database_connection import insert
 
+# Api stuff
 CORSMiddleware = cors.CORSMiddleware
-db = ''
-
 app = FastAPI(
     title="Nexthon",
     desciption="Boilerplate to build a FastAPI + NextJS + React",
@@ -22,6 +22,8 @@ app.add_middleware(
     allow_headers=["*"],
     allow_credentials=True,
 )
+
+# Routes
 
 
 @app.get('/api/posts/')
@@ -51,11 +53,13 @@ async def read_user(id: int, q: str = None):
 
 
 @app.post('/api/users/')
-async def add_user(user: User):
+async def add_user(user: User) -> dict:
     if user.id in users:
         raise HTTPException(
             status_code=400, detail=f"User {user.id=} already exists")
-    users.update(user)
+
+    # users.update(user)
+    insert(user)
     return {"user": user}
 
 

@@ -22,6 +22,26 @@ export default function apiInteraction() {
   });
   */
 
+  let model = {
+    username: 'admi2n',
+    password: 'admin2',
+    role: 'adm2in',
+    id: 8,
+  };
+
+  const handleClick = () => {
+    axios
+      .post(urlEndpoint, model)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  handleClick();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="space-y-4 text-center">

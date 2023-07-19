@@ -69,6 +69,11 @@ Or, to run the instances separately:
 ```bash
 # for the backend
 npm run fastapi-dev
+
+# you can also start the backend manually with
+cd ./api
+python index.py
+
 # for the frontend
 npm run next-dev
 

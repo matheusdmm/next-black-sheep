@@ -16,7 +16,6 @@
     <a href="https://coveralls.io/github/badges/shields">
         <img src="https://img.shields.io/coveralls/github/badges/shields"
             alt="coverage"></a>
-
 </p>
 
 <br/>
@@ -46,13 +45,15 @@ In production, the FastAPI server is hosted as [Python serverless functions](htt
 
 ## Demo
 
-https://nextjs-fastapi-starter.vercel.app/
+##### https://next-black-sheep.vercel.app/
+
+`Beware: Vercel does not allow persistent storage, so the demo is not fully functional. To have all the caviats, you need to clone and start it locally.`
 
 ## Deploy Your Own
 
 You can clone & deploy it to Vercel with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdigitros%2Fnextjs-fastapi%2Ftree%2Fmain)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmatheusdmm%2Fnext-black-sheep)
 
 ## Developing Locally
 
